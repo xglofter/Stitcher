@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79189AB61ED474CC00A22E5A /* TemplateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189AB51ED474CC00A22E5A /* TemplateHelper.m */; };
+		79189AB91ED4772800A22E5A /* ClipTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189AB81ED4772800A22E5A /* ClipTemplate.m */; };
+		79189ABC1ED4775B00A22E5A /* ClipShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189ABB1ED4775B00A22E5A /* ClipShape.m */; };
+		79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB00981ED42A7600A872D6 /* ClipHelper.m */; };
+		79E05DA81ED3093500AADFE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DA71ED3093500AADFE0 /* main.m */; };
+		79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAA1ED3093500AADFE0 /* AppDelegate.m */; };
+		79E05DAE1ED3093500AADFE0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAD1ED3093500AADFE0 /* ViewController.m */; };
+		79E05DB11ED3093500AADFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DAF1ED3093500AADFE0 /* Main.storyboard */; };
+		79E05DB31ED3093500AADFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DB21ED3093500AADFE0 /* Assets.xcassets */; };
+		79E05DB61ED3093500AADFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DB41ED3093500AADFE0 /* LaunchScreen.storyboard */; };
+		79E05DC11ED3093500AADFE0 /* StitcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DC01ED3093500AADFE0 /* StitcherTests.m */; };
+		79E05DCC1ED3093500AADFE0 /* StitcherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DCB1ED3093500AADFE0 /* StitcherUITests.m */; };
+		79E05DDB1ED30A3000AADFE0 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DDA1ED30A3000AADFE0 /* EditViewController.m */; };
+		79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DDC1ED30B2F00AADFE0 /* cat.jpg */; };
+		79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DE31ED320E800AADFE0 /* ImageClipView.m */; };
+		BF9294BD43BDF3F06C60CE2E /* Pods_Stitcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE86CE57A24F2E70A72D2B /* Pods_Stitcher.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79E05DBD1ED3093500AADFE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79E05D9B1ED3093500AADFE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79E05DA21ED3093500AADFE0;
+			remoteInfo = Stitcher;
+		};
+		79E05DC81ED3093500AADFE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79E05D9B1ED3093500AADFE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79E05DA21ED3093500AADFE0;
+			remoteInfo = Stitcher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6FDE86CE57A24F2E70A72D2B /* Pods_Stitcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stitcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79189AB41ED474CC00A22E5A /* TemplateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateHelper.h; sourceTree = "<group>"; };
+		79189AB51ED474CC00A22E5A /* TemplateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateHelper.m; sourceTree = "<group>"; };
+		79189AB71ED4772800A22E5A /* ClipTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipTemplate.h; sourceTree = "<group>"; };
+		79189AB81ED4772800A22E5A /* ClipTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipTemplate.m; sourceTree = "<group>"; };
+		79189ABA1ED4775B00A22E5A /* ClipShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipShape.h; sourceTree = "<group>"; };
+		79189ABB1ED4775B00A22E5A /* ClipShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipShape.m; sourceTree = "<group>"; };
+		79CB00971ED42A7600A872D6 /* ClipHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipHelper.h; sourceTree = "<group>"; };
+		79CB00981ED42A7600A872D6 /* ClipHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipHelper.m; sourceTree = "<group>"; };
+		79E05DA31ED3093500AADFE0 /* Stitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E05DA71ED3093500AADFE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79E05DA91ED3093500AADFE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79E05DAA1ED3093500AADFE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79E05DAC1ED3093500AADFE0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		79E05DAD1ED3093500AADFE0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		79E05DB01ED3093500AADFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79E05DB21ED3093500AADFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79E05DB51ED3093500AADFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79E05DB71ED3093500AADFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79E05DBC1ED3093500AADFE0 /* StitcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StitcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E05DC01ED3093500AADFE0 /* StitcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StitcherTests.m; sourceTree = "<group>"; };
+		79E05DC21ED3093500AADFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79E05DC71ED3093500AADFE0 /* StitcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StitcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E05DCB1ED3093500AADFE0 /* StitcherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StitcherUITests.m; sourceTree = "<group>"; };
+		79E05DCD1ED3093500AADFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79E05DD91ED30A3000AADFE0 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		79E05DDA1ED30A3000AADFE0 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		79E05DDC1ED30B2F00AADFE0 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
+		79E05DE21ED320E800AADFE0 /* ImageClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageClipView.h; sourceTree = "<group>"; };
+		79E05DE31ED320E800AADFE0 /* ImageClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageClipView.m; sourceTree = "<group>"; };
+		93BFC0911B52677625D2D7A5 /* Pods-Stitcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.release.xcconfig"; sourceTree = "<group>"; };
+		C74B89F5204561AF7EE64F2E /* Pods-Stitcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79E05DA01ED3093500AADFE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9294BD43BDF3F06C60CE2E /* Pods_Stitcher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DB91ED3093500AADFE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DC41ED3093500AADFE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		505509E88F5F804038E74DC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FDE86CE57A24F2E70A72D2B /* Pods_Stitcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DFAA80650DE771C02F45733 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C74B89F5204561AF7EE64F2E /* Pods-Stitcher.debug.xcconfig */,
+				93BFC0911B52677625D2D7A5 /* Pods-Stitcher.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		79E05D9A1ED3093500AADFE0 = {
+			isa = PBXGroup;
+			children = (
+				79E05DA51ED3093500AADFE0 /* Stitcher */,
+				79E05DBF1ED3093500AADFE0 /* StitcherTests */,
+				79E05DCA1ED3093500AADFE0 /* StitcherUITests */,
+				79E05DA41ED3093500AADFE0 /* Products */,
+				5DFAA80650DE771C02F45733 /* Pods */,
+				505509E88F5F804038E74DC3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		79E05DA41ED3093500AADFE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79E05DA31ED3093500AADFE0 /* Stitcher.app */,
+				79E05DBC1ED3093500AADFE0 /* StitcherTests.xctest */,
+				79E05DC71ED3093500AADFE0 /* StitcherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79E05DA51ED3093500AADFE0 /* Stitcher */ = {
+			isa = PBXGroup;
+			children = (
+				79E05DA91ED3093500AADFE0 /* AppDelegate.h */,
+				79E05DAA1ED3093500AADFE0 /* AppDelegate.m */,
+				79E05DAC1ED3093500AADFE0 /* ViewController.h */,
+				79E05DAD1ED3093500AADFE0 /* ViewController.m */,
+				79E05DAF1ED3093500AADFE0 /* Main.storyboard */,
+				79E05DB21ED3093500AADFE0 /* Assets.xcassets */,
+				79E05DB41ED3093500AADFE0 /* LaunchScreen.storyboard */,
+				79E05DB71ED3093500AADFE0 /* Info.plist */,
+				79E05DA61ED3093500AADFE0 /* Supporting Files */,
+				79E05DD91ED30A3000AADFE0 /* EditViewController.h */,
+				79E05DDA1ED30A3000AADFE0 /* EditViewController.m */,
+				79E05DDC1ED30B2F00AADFE0 /* cat.jpg */,
+				79E05DE21ED320E800AADFE0 /* ImageClipView.h */,
+				79E05DE31ED320E800AADFE0 /* ImageClipView.m */,
+				79CB00971ED42A7600A872D6 /* ClipHelper.h */,
+				79CB00981ED42A7600A872D6 /* ClipHelper.m */,
+				79189AB41ED474CC00A22E5A /* TemplateHelper.h */,
+				79189AB51ED474CC00A22E5A /* TemplateHelper.m */,
+				79189AB71ED4772800A22E5A /* ClipTemplate.h */,
+				79189AB81ED4772800A22E5A /* ClipTemplate.m */,
+				79189ABA1ED4775B00A22E5A /* ClipShape.h */,
+				79189ABB1ED4775B00A22E5A /* ClipShape.m */,
+			);
+			path = Stitcher;
+			sourceTree = "<group>";
+		};
+		79E05DA61ED3093500AADFE0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79E05DA71ED3093500AADFE0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79E05DBF1ED3093500AADFE0 /* StitcherTests */ = {
+			isa = PBXGroup;
+			children = (
+				79E05DC01ED3093500AADFE0 /* StitcherTests.m */,
+				79E05DC21ED3093500AADFE0 /* Info.plist */,
+			);
+			path = StitcherTests;
+			sourceTree = "<group>";
+		};
+		79E05DCA1ED3093500AADFE0 /* StitcherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				79E05DCB1ED3093500AADFE0 /* StitcherUITests.m */,
+				79E05DCD1ED3093500AADFE0 /* Info.plist */,
+			);
+			path = StitcherUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79E05DA21ED3093500AADFE0 /* Stitcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79E05DD01ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "Stitcher" */;
+			buildPhases = (
+				E3F2DD435B1E36D7D88FDC09 /* [CP] Check Pods Manifest.lock */,
+				79E05D9F1ED3093500AADFE0 /* Sources */,
+				79E05DA01ED3093500AADFE0 /* Frameworks */,
+				79E05DA11ED3093500AADFE0 /* Resources */,
+				1E3EC88049B8A64EE76FC664 /* [CP] Embed Pods Frameworks */,
+				01B5C2EF8EA82027962FA464 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stitcher;
+			productName = Stitcher;
+			productReference = 79E05DA31ED3093500AADFE0 /* Stitcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79E05DBB1ED3093500AADFE0 /* StitcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79E05DD31ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "StitcherTests" */;
+			buildPhases = (
+				79E05DB81ED3093500AADFE0 /* Sources */,
+				79E05DB91ED3093500AADFE0 /* Frameworks */,
+				79E05DBA1ED3093500AADFE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79E05DBE1ED3093500AADFE0 /* PBXTargetDependency */,
+			);
+			name = StitcherTests;
+			productName = StitcherTests;
+			productReference = 79E05DBC1ED3093500AADFE0 /* StitcherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		79E05DC61ED3093500AADFE0 /* StitcherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79E05DD61ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "StitcherUITests" */;
+			buildPhases = (
+				79E05DC31ED3093500AADFE0 /* Sources */,
+				79E05DC41ED3093500AADFE0 /* Frameworks */,
+				79E05DC51ED3093500AADFE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79E05DC91ED3093500AADFE0 /* PBXTargetDependency */,
+			);
+			name = StitcherUITests;
+			productName = StitcherUITests;
+			productReference = 79E05DC71ED3093500AADFE0 /* StitcherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79E05D9B1ED3093500AADFE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Richard;
+				TargetAttributes = {
+					79E05DA21ED3093500AADFE0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = MG4GRZ9TJ6;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					79E05DBB1ED3093500AADFE0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = MG4GRZ9TJ6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 79E05DA21ED3093500AADFE0;
+					};
+					79E05DC61ED3093500AADFE0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = MG4GRZ9TJ6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 79E05DA21ED3093500AADFE0;
+					};
+				};
+			};
+			buildConfigurationList = 79E05D9E1ED3093500AADFE0 /* Build configuration list for PBXProject "Stitcher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79E05D9A1ED3093500AADFE0;
+			productRefGroup = 79E05DA41ED3093500AADFE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79E05DA21ED3093500AADFE0 /* Stitcher */,
+				79E05DBB1ED3093500AADFE0 /* StitcherTests */,
+				79E05DC61ED3093500AADFE0 /* StitcherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79E05DA11ED3093500AADFE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E05DB61ED3093500AADFE0 /* LaunchScreen.storyboard in Resources */,
+				79E05DB31ED3093500AADFE0 /* Assets.xcassets in Resources */,
+				79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */,
+				79E05DB11ED3093500AADFE0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DBA1ED3093500AADFE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DC51ED3093500AADFE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01B5C2EF8EA82027962FA464 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E3EC88049B8A64EE76FC664 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3F2DD435B1E36D7D88FDC09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79E05D9F1ED3093500AADFE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E05DDB1ED30A3000AADFE0 /* EditViewController.m in Sources */,
+				79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */,
+				79189AB61ED474CC00A22E5A /* TemplateHelper.m in Sources */,
+				79E05DAE1ED3093500AADFE0 /* ViewController.m in Sources */,
+				79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */,
+				79189AB91ED4772800A22E5A /* ClipTemplate.m in Sources */,
+				79E05DA81ED3093500AADFE0 /* main.m in Sources */,
+				79189ABC1ED4775B00A22E5A /* ClipShape.m in Sources */,
+				79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DB81ED3093500AADFE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E05DC11ED3093500AADFE0 /* StitcherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E05DC31ED3093500AADFE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79E05DCC1ED3093500AADFE0 /* StitcherUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79E05DBE1ED3093500AADFE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79E05DA21ED3093500AADFE0 /* Stitcher */;
+			targetProxy = 79E05DBD1ED3093500AADFE0 /* PBXContainerItemProxy */;
+		};
+		79E05DC91ED3093500AADFE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79E05DA21ED3093500AADFE0 /* Stitcher */;
+			targetProxy = 79E05DC81ED3093500AADFE0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79E05DAF1ED3093500AADFE0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79E05DB01ED3093500AADFE0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79E05DB41ED3093500AADFE0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79E05DB51ED3093500AADFE0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79E05DCE1ED3093500AADFE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79E05DCF1ED3093500AADFE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79E05DD11ED3093500AADFE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C74B89F5204561AF7EE64F2E /* Pods-Stitcher.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = Stitcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.Stitcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		79E05DD21ED3093500AADFE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93BFC0911B52677625D2D7A5 /* Pods-Stitcher.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = Stitcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.Stitcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		79E05DD41ED3093500AADFE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = StitcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.StitcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stitcher.app/Stitcher";
+			};
+			name = Debug;
+		};
+		79E05DD51ED3093500AADFE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = StitcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.StitcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stitcher.app/Stitcher";
+			};
+			name = Release;
+		};
+		79E05DD71ED3093500AADFE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = StitcherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.StitcherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Stitcher;
+			};
+			name = Debug;
+		};
+		79E05DD81ED3093500AADFE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MG4GRZ9TJ6;
+				INFOPLIST_FILE = StitcherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.test.StitcherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Stitcher;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79E05D9E1ED3093500AADFE0 /* Build configuration list for PBXProject "Stitcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79E05DCE1ED3093500AADFE0 /* Debug */,
+				79E05DCF1ED3093500AADFE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79E05DD01ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "Stitcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79E05DD11ED3093500AADFE0 /* Debug */,
+				79E05DD21ED3093500AADFE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79E05DD31ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "StitcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79E05DD41ED3093500AADFE0 /* Debug */,
+				79E05DD51ED3093500AADFE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79E05DD61ED3093500AADFE0 /* Build configuration list for PBXNativeTarget "StitcherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79E05DD71ED3093500AADFE0 /* Debug */,
+				79E05DD81ED3093500AADFE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79E05D9B1ED3093500AADFE0 /* Project object */;
+}

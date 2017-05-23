@@ -1,0 +1,24 @@
+PODS:
+  - Masonry (1.0.2)
+  - PicturePicker (0.0.1)
+
+DEPENDENCIES:
+  - Masonry (~> 1.0.2)
+  - PicturePicker (from `https://github.com/xglofter/PicturePicker.git`)
+
+EXTERNAL SOURCES:
+  PicturePicker:
+    :git: https://github.com/xglofter/PicturePicker.git
+
+CHECKOUT OPTIONS:
+  PicturePicker:
+    :commit: 54ee9d392666b9f7ce4a50d38806ce53f93173af
+    :git: https://github.com/xglofter/PicturePicker.git
+
+SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  PicturePicker: 497a79ae825d5787bbcb8ed8a88ed393d5b0b2be
+
+PODFILE CHECKSUM: 121b9778d5ae6db26235372fad7126d025a1305d
+
+COCOAPODS: 1.1.1
