@@ -14,7 +14,7 @@
 /**
  剪切顶点数据，分量 0~1
  */
-@property(nonatomic, strong) NSMutableArray<NSValue *> *clipPoints;
+@property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
 
 /**
  距离模板边界四周的相对距离，分量 0~1
@@ -31,16 +31,14 @@
 /**
  初始化 ClipShape 对象
 
- @param points 剪切顶点数组，顺时针方向 [x1,y1,x2,y2...]
- @param len 顶点个数
+ @param points 剪切顶点数组，顺时针方向 [(x1,y1), (x2,y2), ...]
  @param insets 距离边界的相对值
  @return ClipShape 对象
  
  @note: points 顶点为 0~1 的相对自身宽高的值
         insets 分量为 0~1 的相对模板宽高的值
  */
-- (instancetype)initWithPoints: (double [])points
-                        length: (int)len
+- (instancetype)initWithPoints: (NSArray<NSValue *> *)points
                     edgeInsets: (UIEdgeInsets)insets;
 
 @end

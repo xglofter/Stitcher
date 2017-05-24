@@ -10,7 +10,6 @@
 
 @interface ClipHelper : NSObject
 
-
 /**
  将图片切片
  

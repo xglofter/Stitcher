@@ -10,6 +10,9 @@
 		79189AB61ED474CC00A22E5A /* TemplateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189AB51ED474CC00A22E5A /* TemplateHelper.m */; };
 		79189AB91ED4772800A22E5A /* ClipTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189AB81ED4772800A22E5A /* ClipTemplate.m */; };
 		79189ABC1ED4775B00A22E5A /* ClipShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 79189ABB1ED4775B00A22E5A /* ClipShape.m */; };
+		792CCF051ED56896001EFD00 /* d01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792CCF041ED56896001EFD00 /* d01.plist */; };
+		792CCF071ED58B77001EFD00 /* d02.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792CCF061ED58B77001EFD00 /* d02.plist */; };
+		792CCF091ED59163001EFD00 /* d03.plist in Resources */ = {isa = PBXBuildFile; fileRef = 792CCF081ED59163001EFD00 /* d03.plist */; };
 		79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB00981ED42A7600A872D6 /* ClipHelper.m */; };
 		79E05DA81ED3093500AADFE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DA71ED3093500AADFE0 /* main.m */; };
 		79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAA1ED3093500AADFE0 /* AppDelegate.m */; };
@@ -50,6 +53,9 @@
 		79189AB81ED4772800A22E5A /* ClipTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipTemplate.m; sourceTree = "<group>"; };
 		79189ABA1ED4775B00A22E5A /* ClipShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipShape.h; sourceTree = "<group>"; };
 		79189ABB1ED4775B00A22E5A /* ClipShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipShape.m; sourceTree = "<group>"; };
+		792CCF041ED56896001EFD00 /* d01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = d01.plist; sourceTree = "<group>"; };
+		792CCF061ED58B77001EFD00 /* d02.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = d02.plist; sourceTree = "<group>"; };
+		792CCF081ED59163001EFD00 /* d03.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = d03.plist; sourceTree = "<group>"; };
 		79CB00971ED42A7600A872D6 /* ClipHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipHelper.h; sourceTree = "<group>"; };
 		79CB00981ED42A7600A872D6 /* ClipHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipHelper.m; sourceTree = "<group>"; };
 		79E05DA31ED3093500AADFE0 /* Stitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +173,9 @@
 				79189AB81ED4772800A22E5A /* ClipTemplate.m */,
 				79189ABA1ED4775B00A22E5A /* ClipShape.h */,
 				79189ABB1ED4775B00A22E5A /* ClipShape.m */,
+				792CCF041ED56896001EFD00 /* d01.plist */,
+				792CCF061ED58B77001EFD00 /* d02.plist */,
+				792CCF081ED59163001EFD00 /* d03.plist */,
 			);
 			path = Stitcher;
 			sourceTree = "<group>";
@@ -311,8 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E05DB61ED3093500AADFE0 /* LaunchScreen.storyboard in Resources */,
+				792CCF091ED59163001EFD00 /* d03.plist in Resources */,
 				79E05DB31ED3093500AADFE0 /* Assets.xcassets in Resources */,
 				79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */,
+				792CCF071ED58B77001EFD00 /* d02.plist in Resources */,
+				792CCF051ED56896001EFD00 /* d01.plist in Resources */,
 				79E05DB11ED3093500AADFE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

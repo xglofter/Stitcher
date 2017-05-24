@@ -11,7 +11,6 @@
 @interface ImageClipView : UIView
 
 @property(nonatomic, strong) UIImage *sourceImage;
-@property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
 
 /**
  使用剪切的四边形路径点进行初始化
@@ -47,5 +46,14 @@
  @return 在本图片中的切图范围，使用 CGRect 表示
  */
 - (CGRect)getClipFrame;
+
+/**
+ 获取切图顶点的位置数组
+ 
+ @return 在 view.frame 中的位置数组
+ 
+ @note: 与 initWithPoints 中的传参不同，初始化中的是 0~1 的相对位置
+ */
+- (NSArray *)getClipFramePoints;
 
 @end

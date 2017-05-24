@@ -16,7 +16,8 @@ const static int TAG_IMAGEVIEW = 200;
 @property(nonatomic, strong) UIView *container;
 @property(nonatomic, strong) UIScrollView *scrollView;
 @property(nonatomic, strong) UIImageView *imageView;
-//@property(nonatomic, assign) CGSize containerSize;
+
+@property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
 
 @end
 
@@ -30,10 +31,6 @@ const static int TAG_IMAGEVIEW = 200;
     }
     return self;
 }
-
-//- (void)setContainerSize: (CGSize)size {
-//    _containerSize = size;
-//}
 
 - (void)setImage: (UIImage *)image {
     // TODO
@@ -58,17 +55,18 @@ const static int TAG_IMAGEVIEW = 200;
     return CGRectMake(originX, originY, sizeW, sizeH);
 }
 
+- (NSArray *)getClipFramePoints {
+    
+    NSMutableArray<NSValue *> *points = [[NSMutableArray alloc] initWithCapacity:_clipPoints.count];
+    for (int i = 0; i < _clipPoints.count; i++) {
+        [points addObject:[NSValue valueWithCGPoint:[self pointToFrameAtIndex:i]]];
+    }
+    return points;
+}
+
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     return [self isPointInClipArea:point];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -138,25 +136,15 @@ const static int TAG_IMAGEVIEW = 200;
     
     NSAssert(!(size.width == 0 && size.height == 0), @"container size can't be zero.");
     
-    NSLog(@"applyMask size %lf %lf", self.bounds.size.width, self.bounds.size.height);
-    
-//    NSValue *point0 = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
-//    NSValue *point1 = [NSValue valueWithCGPoint:CGPointMake(size.width * 2/3 - 2, 0)];
-//    NSValue *point2 = [NSValue valueWithCGPoint:CGPointMake(size.width/3 - 2, size.height)];
-//    NSValue *point3 = [NSValue valueWithCGPoint:CGPointMake(0, size.height)];
-//    NSArray *points = [NSArray arrayWithObjects:point0, point1, point2, point3, nil];
-//    [self applyMaskToView:_container pathPoints:points];
-    
-    CGPoint point0 = [[_clipPoints objectAtIndex:0] CGPointValue];
-    CGPoint point1 = [[_clipPoints objectAtIndex:1] CGPointValue];
-    CGPoint point2 = [[_clipPoints objectAtIndex:2] CGPointValue];
-    CGPoint point3 = [[_clipPoints objectAtIndex:3] CGPointValue];
-
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, point0.x * size.width, point0.y * size.height);
-    CGPathAddLineToPoint(path, NULL, point1.x * size.width, point1.y * size.height);
-    CGPathAddLineToPoint(path, NULL, point2.x * size.width, point2.y * size.height);
-    CGPathAddLineToPoint(path, NULL, point3.x * size.width, point3.y * size.height);
+    for (int i = 0; i < _clipPoints.count; i++) {
+        CGPoint point = [self pointToFrameAtIndex:i];
+        if (i == 0) {
+            CGPathMoveToPoint(path, NULL, point.x, point.y);
+        } else {
+            CGPathAddLineToPoint(path, NULL, point.x, point.y);
+        }
+    }
     CGPathCloseSubpath(path);
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -172,20 +160,10 @@ const static int TAG_IMAGEVIEW = 200;
     CGFloat px = point.x;
     CGFloat py = point.y;
     
-    CGPoint point0 = [[_clipPoints objectAtIndex:0] CGPointValue];
-    CGPoint point1 = [[_clipPoints objectAtIndex:1] CGPointValue];
-    CGPoint point2 = [[_clipPoints objectAtIndex:2] CGPointValue];
-    CGPoint point3 = [[_clipPoints objectAtIndex:3] CGPointValue];
-    
-    CGSize size = self.bounds.size;
-    point0.x *= size.width;
-    point0.y *= size.height;
-    point1.x *= size.width;
-    point1.y *= size.height;
-    point2.x *= size.width;
-    point2.y *= size.height;
-    point3.x *= size.width;
-    point3.y *= size.height;
+    CGPoint point0 = [self pointToFrameAtIndex:0];
+    CGPoint point1 = [self pointToFrameAtIndex:1];
+    CGPoint point2 = [self pointToFrameAtIndex:2];
+    CGPoint point3 = [self pointToFrameAtIndex:3];
     
     // AB X AP = (b.x - a.x, b.y - a.y) x (p.x - a.x, p.y - a.y)
     //         = (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x);
@@ -201,6 +179,14 @@ const static int TAG_IMAGEVIEW = 200;
         return YES;
     }
     return NO;
+}
+
+- (CGPoint)pointToFrameAtIndex: (int)idx {
+    CGPoint point = [[_clipPoints objectAtIndex:idx] CGPointValue];
+    CGSize size = self.bounds.size;
+    point.x *= size.width;
+    point.y *= size.height;
+    return point;
 }
 
 @end
