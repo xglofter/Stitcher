@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>id</key>
-	<string>d03</string>
+	<string>d01</string>
 	<key>shape_number</key>
 	<integer>4</integer>
 	<key>vertex_points</key>
@@ -117,43 +117,43 @@
 	<array>
 		<dict>
 			<key>top</key>
-			<real>0</real>
+			<real>0.01</real>
 			<key>left</key>
-			<real>0</real>
+			<real>0.014</real>
 			<key>bottom</key>
-			<real>0.333</real>
+			<real>0.505</real>
 			<key>right</key>
-			<integer>0</integer>
+			<real>0.507</real>
 		</dict>
 		<dict>
 			<key>top</key>
-			<real>0.667</real>
+			<real>0.01</real>
 			<key>left</key>
-			<integer>0</integer>
+			<real>0.507</real>
 			<key>bottom</key>
-			<integer>0</integer>
+			<real>0.505</real>
 			<key>right</key>
-			<real>0.667</real>
+			<real>0.01</real>
 		</dict>
 		<dict>
 			<key>top</key>
-			<real>0.667</real>
+			<real>0.505</real>
 			<key>left</key>
-			<real>0.333</real>
+			<real>0.014</real>
 			<key>bottom</key>
-			<real>0</real>
+			<real>0.01</real>
 			<key>right</key>
-			<real>0.333</real>
+			<real>0.507</real>
 		</dict>
 		<dict>
 			<key>top</key>
-			<real>0.667</real>
+			<real>0.505</real>
 			<key>left</key>
-			<real>0.667</real>
+			<real>0.507</real>
 			<key>bottom</key>
-			<integer>0</integer>
+			<real>0.01</real>
 			<key>right</key>
-			<real>0</real>
+			<real>0.014</real>
 		</dict>
 	</array>
 </dict>

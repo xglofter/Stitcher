@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>id</key>
-	<string>d02</string>
+	<string>c01</string>
 	<key>shape_number</key>
-	<integer>4</integer>
+	<integer>3</integer>
 	<key>vertex_points</key>
 	<array>
 		<array>
@@ -17,7 +17,33 @@
 			</dict>
 			<dict>
 				<key>x</key>
-				<real>0.6</real>
+				<integer>1</integer>
+				<key>y</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>x</key>
+				<integer>1</integer>
+				<key>y</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>0</real>
+			</dict>
+			<dict>
+				<key>x</key>
+				<integer>1</integer>
 				<key>y</key>
 				<real>0</real>
 			</dict>
@@ -25,13 +51,13 @@
 				<key>x</key>
 				<real>1</real>
 				<key>y</key>
-				<real>0.714</real>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>x</key>
-				<real>0</real>
+				<integer>0</integer>
 				<key>y</key>
-				<real>1</real>
+				<integer>1</integer>
 			</dict>
 		</array>
 		<array>
@@ -43,73 +69,21 @@
 			</dict>
 			<dict>
 				<key>x</key>
-				<real>1</real>
+				<integer>1</integer>
 				<key>y</key>
-				<real>0</real>
+				<integer>0</integer>
 			</dict>
 			<dict>
 				<key>x</key>
-				<real>1</real>
+				<integer>1</integer>
 				<key>y</key>
-				<real>0.6</real>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>x</key>
-				<real>0.286</real>
+				<integer>0</integer>
 				<key>y</key>
-				<real>1</real>
-			</dict>
-		</array>
-		<array>
-			<dict>
-				<key>x</key>
-				<real>0</real>
-				<key>y</key>
-				<real>0.4</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>0.714</real>
-				<key>y</key>
-				<real>0</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>1</real>
-				<key>y</key>
-				<real>1</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>0</real>
-				<key>y</key>
-				<real>1</real>
-			</dict>
-		</array>
-		<array>
-			<dict>
-				<key>x</key>
-				<real>0</real>
-				<key>y</key>
-				<real>0.286</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>1</real>
-				<key>y</key>
-				<real>0</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>1</real>
-				<key>y</key>
-				<real>1</real>
-			</dict>
-			<dict>
-				<key>x</key>
-				<real>0.4</real>
-				<key>y</key>
-				<real>1</real>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</array>
@@ -117,43 +91,33 @@
 	<array>
 		<dict>
 			<key>top</key>
-			<real>0</real>
+			<real>0.01</real>
 			<key>left</key>
-			<real>0</real>
+			<real>0.014</real>
 			<key>bottom</key>
-			<real>0.3</real>
+			<real>0.672</real>
 			<key>right</key>
-			<real>0.5</real>
+			<real>0.014</real>
 		</dict>
 		<dict>
 			<key>top</key>
-			<real>0</real>
+			<real>0.338</real>
 			<key>left</key>
-			<real>0.3</real>
+			<real>0.014</real>
 			<key>bottom</key>
-			<real>0.5</real>
+			<real>0.338</real>
 			<key>right</key>
-			<real>0</real>
+			<real>0.014</real>
 		</dict>
 		<dict>
 			<key>top</key>
-			<real>0.5</real>
+			<real>0.672</real>
 			<key>left</key>
-			<real>0</real>
+			<real>0.014</real>
 			<key>bottom</key>
-			<real>0</real>
+			<real>0.01</real>
 			<key>right</key>
-			<real>0.3</real>
-		</dict>
-		<dict>
-			<key>top</key>
-			<real>0.3</real>
-			<key>left</key>
-			<real>0.5</real>
-			<key>bottom</key>
-			<real>0</real>
-			<key>right</key>
-			<real>0</real>
+			<real>0.014</real>
 		</dict>
 	</array>
 </dict>

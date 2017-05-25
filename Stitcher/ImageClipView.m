@@ -87,17 +87,6 @@ const static int TAG_IMAGEVIEW = 200;
     return [scrollView viewWithTag:TAG_IMAGEVIEW];
 }
 
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    
-//}
-//
-//- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-//    
-//}
-//
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//    
-//}
 
 #pragma mark - Private Functions
 
@@ -108,13 +97,12 @@ const static int TAG_IMAGEVIEW = 200;
     
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
-    _scrollView.backgroundColor = [UIColor redColor];
     _scrollView.bouncesZoom = YES;
     _scrollView.minimumZoomScale = 1.0;
     _scrollView.maximumZoomScale = 2.0;
     [_container addSubview:_scrollView];
     
-    _sourceImage = [UIImage imageNamed:@"cat.jpg"];
+    _sourceImage = [UIImage imageNamed:@"cat.jpg"];  // TODO: 改为选择
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:_sourceImage];
     imageView.tag = TAG_IMAGEVIEW;

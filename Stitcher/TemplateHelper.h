@@ -13,6 +13,7 @@
 
 #define OUTPUT_IMG_WIDTH ((CGFloat)1082)
 #define OUTPUT_IMG_HEIGHT ((CGFloat)1500)
+#define OUTPUT_GAP_WIDTH ((CGFloat)15)
 
 @interface TemplateHelper : NSObject
 
@@ -29,21 +30,16 @@
 
  @param shape ClipShape 实例
  @param size UI 面板上的容器大小
- @param spaceWid Shape 间隔
  @return UIEdgeInests
  */
 + (UIEdgeInsets)getEdgeInsetsWithShape: (ClipShape *)shape
-                         containerSize: (CGSize)size
-                            spaceWidth: (CGFloat)spaceWid;
-
+                         containerSize: (CGSize)size;
 /**
  获取 ClipShape 合并为最终拼接图的绘制区域，用于 ClipHelper::mergeImagesWithSize
 
  @param shape ClipShape 实例
- @param spaceWid 拼接图中的 shape 间隔
  @return CGRect
  */
-+ (CGRect)getMergeRectWithShape: (ClipShape *)shape
-                     spaceWidth: (CGFloat)spaceWid;
++ (CGRect)getMergeRectWithShape: (ClipShape *)shape;
 
 @end

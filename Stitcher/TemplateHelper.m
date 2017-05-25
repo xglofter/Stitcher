@@ -95,31 +95,21 @@
 
 + (UIEdgeInsets)getEdgeInsetsWithShape: (ClipShape *)shape
                          containerSize: (CGSize)size
-                            spaceWidth: (CGFloat)spaceWid
 {
     CGFloat top = shape.edgeInsets.top * size.height;
-    top += (top == 0) ? spaceWid : spaceWid / 2; // 根据是否靠边来判断间隙
     CGFloat left = shape.edgeInsets.left * size.width;
-    left += (left == 0) ? spaceWid : spaceWid / 2;
     CGFloat bottom = shape.edgeInsets.bottom * size.height;
-    bottom += (bottom == 0) ? spaceWid : spaceWid / 2;
     CGFloat right = shape.edgeInsets.right * size.width;
-    right += (right == 0) ? spaceWid : spaceWid / 2;
     return UIEdgeInsetsMake(top, left, bottom, right);
 }
 
 
-+ (CGRect)getMergeRectWithShape: (ClipShape *)shape
-                     spaceWidth: (CGFloat)spaceWid
-{
++ (CGRect)getMergeRectWithShape: (ClipShape *)shape {
+    
     CGFloat originX = OUTPUT_IMG_WIDTH * shape.mergeFrame.origin.x;
-    originX += (originX == 0) ? spaceWid : spaceWid / 2; // 根据是否靠边来判断间隙
     CGFloat originY = OUTPUT_IMG_HEIGHT * shape.mergeFrame.origin.y;
-    originY += (originY == 0) ? spaceWid : spaceWid / 2;
     CGFloat sizeW = OUTPUT_IMG_WIDTH * shape.mergeFrame.size.width;
-    sizeW -= (sizeW == 0) ? spaceWid * 2 : spaceWid * 3 / 2;
     CGFloat sizeH = OUTPUT_IMG_HEIGHT * shape.mergeFrame.size.height;
-    sizeH -= (sizeH == 0) ? spaceWid * 2 : spaceWid * 3 / 2;
     return CGRectMake(originX, originY, sizeW, sizeH);
 }
 
