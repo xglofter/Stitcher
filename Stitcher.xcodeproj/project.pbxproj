@@ -17,6 +17,9 @@
 		792CCF141ED59818001EFD00 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 792CCF131ED59818001EFD00 /* README.md */; };
 		79885B2B1ED68294009F9DAA /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B2A1ED68294009F9DAA /* RoundButton.m */; };
 		79885B2F1ED690DE009F9DAA /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B2E1ED690DE009F9DAA /* FinishViewController.m */; };
+		79885B321ED6C746009F9DAA /* ImagesDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B311ED6C746009F9DAA /* ImagesDisplayView.m */; };
+		79885B351ED6C784009F9DAA /* TemplateDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B341ED6C784009F9DAA /* TemplateDisplayView.m */; };
+		79885B381ED6C79E009F9DAA /* DisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B371ED6C79E009F9DAA /* DisplayView.m */; };
 		79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB00981ED42A7600A872D6 /* ClipHelper.m */; };
 		79E05DA81ED3093500AADFE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DA71ED3093500AADFE0 /* main.m */; };
 		79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAA1ED3093500AADFE0 /* AppDelegate.m */; };
@@ -29,6 +32,7 @@
 		79E05DDB1ED30A3000AADFE0 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DDA1ED30A3000AADFE0 /* EditViewController.m */; };
 		79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DDC1ED30B2F00AADFE0 /* cat.jpg */; };
 		79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DE31ED320E800AADFE0 /* ImageClipView.m */; };
+		79E9D1EB1ED838BA00208A45 /* b01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79E9D1EA1ED838BA00208A45 /* b01.plist */; };
 		BF9294BD43BDF3F06C60CE2E /* Pods_Stitcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE86CE57A24F2E70A72D2B /* Pods_Stitcher.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,12 @@
 		79885B2A1ED68294009F9DAA /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
 		79885B2D1ED690DE009F9DAA /* FinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishViewController.h; sourceTree = "<group>"; };
 		79885B2E1ED690DE009F9DAA /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
+		79885B301ED6C746009F9DAA /* ImagesDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesDisplayView.h; sourceTree = "<group>"; };
+		79885B311ED6C746009F9DAA /* ImagesDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesDisplayView.m; sourceTree = "<group>"; };
+		79885B331ED6C784009F9DAA /* TemplateDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateDisplayView.h; sourceTree = "<group>"; };
+		79885B341ED6C784009F9DAA /* TemplateDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateDisplayView.m; sourceTree = "<group>"; };
+		79885B361ED6C79E009F9DAA /* DisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayView.h; sourceTree = "<group>"; };
+		79885B371ED6C79E009F9DAA /* DisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayView.m; sourceTree = "<group>"; };
 		79CB00971ED42A7600A872D6 /* ClipHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipHelper.h; sourceTree = "<group>"; };
 		79CB00981ED42A7600A872D6 /* ClipHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipHelper.m; sourceTree = "<group>"; };
 		79E05DA31ED3093500AADFE0 /* Stitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +99,7 @@
 		79E05DDC1ED30B2F00AADFE0 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
 		79E05DE21ED320E800AADFE0 /* ImageClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageClipView.h; sourceTree = "<group>"; };
 		79E05DE31ED320E800AADFE0 /* ImageClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageClipView.m; sourceTree = "<group>"; };
+		79E9D1EA1ED838BA00208A45 /* b01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = b01.plist; path = data/b01.plist; sourceTree = "<group>"; };
 		93BFC0911B52677625D2D7A5 /* Pods-Stitcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.release.xcconfig"; sourceTree = "<group>"; };
 		C74B89F5204561AF7EE64F2E /* Pods-Stitcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				792CCF131ED59818001EFD00 /* README.md */,
+				79E9D1EA1ED838BA00208A45 /* b01.plist */,
 				792CCF0B1ED5962E001EFD00 /* c01.plist */,
 				792CCF0C1ED5962E001EFD00 /* d01.plist */,
 				792CCF0D1ED5962E001EFD00 /* d02.plist */,
@@ -182,6 +194,12 @@
 			children = (
 				79885B291ED68294009F9DAA /* RoundButton.h */,
 				79885B2A1ED68294009F9DAA /* RoundButton.m */,
+				79885B361ED6C79E009F9DAA /* DisplayView.h */,
+				79885B371ED6C79E009F9DAA /* DisplayView.m */,
+				79885B301ED6C746009F9DAA /* ImagesDisplayView.h */,
+				79885B311ED6C746009F9DAA /* ImagesDisplayView.m */,
+				79885B331ED6C784009F9DAA /* TemplateDisplayView.h */,
+				79885B341ED6C784009F9DAA /* TemplateDisplayView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -382,6 +400,7 @@
 				792CCF111ED5962E001EFD00 /* d02.plist in Resources */,
 				79E05DB31ED3093500AADFE0 /* Assets.xcassets in Resources */,
 				79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */,
+				79E9D1EB1ED838BA00208A45 /* b01.plist in Resources */,
 				79E05DB11ED3093500AADFE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +478,9 @@
 				79885B2F1ED690DE009F9DAA /* FinishViewController.m in Sources */,
 				79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */,
 				792CCF141ED59818001EFD00 /* README.md in Sources */,
+				79885B381ED6C79E009F9DAA /* DisplayView.m in Sources */,
+				79885B321ED6C746009F9DAA /* ImagesDisplayView.m in Sources */,
+				79885B351ED6C784009F9DAA /* TemplateDisplayView.m in Sources */,
 				79189AB61ED474CC00A22E5A /* TemplateHelper.m in Sources */,
 				79E05DAE1ED3093500AADFE0 /* ViewController.m in Sources */,
 				79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */,

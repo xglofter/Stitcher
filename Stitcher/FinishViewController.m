@@ -36,18 +36,10 @@
     _targetImageView = [[UIImageView alloc] initWithImage:_targetImage];
     [_targetImageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.view addSubview:_targetImageView];
-    
+
+//    make.height.equalTo(self.view).multipliedBy(0.8);
     [_targetImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(100, 50, 100, 50));
-    }];
-    
-    CGFloat spaceTop = 20 + self.navigationController.navigationBar.frame.size.height
-                          + self.navigationController.navigationBar.frame.origin.y;
-    [_targetImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(spaceTop);
-        make.centerX.equalTo(self.view);
-        make.width.mas_equalTo(150 * OUTPUT_IMG_WIDTH / OUTPUT_IMG_HEIGHT);
-        make.height.mas_equalTo(150);
     }];
     
 //    UIImageWriteToSavedPhotosAlbum(_targetImage, nil, nil, nil);

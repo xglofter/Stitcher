@@ -15,18 +15,27 @@
 #import "TemplateHelper.h"
 #import <Masonry/Masonry.h>
 #import "FinishViewController.h"
+#import "ImagesDisplayView.h"
+#import "TemplateDisplayView.h"
+#import <PicturePicker/PicturePicker.h>
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define TAG_START_VIEW 1000
+#define MIN_CHOOSED_NUMBER 2
+#define MAX_CHOOSED_NUMBER 9
 
 #pragma mark - EditViewController
 
-@interface EditViewController () <UIScrollViewDelegate>
+@interface EditViewController () <UIScrollViewDelegate, TemplateDisplayViewDelegate> {
+    BOOL isFirstEnter;
+}
 
 @property(nonatomic, strong) UIView *container;
 @property(nonatomic, assign) CGSize containerSize;
+
+@property(nonatomic, strong) NSMutableArray<UIImage *> *choosedImages;
 
 @property(nonatomic, strong) ClipTemplate *template;
 @property(nonatomic, strong) NSMutableArray<ImageClipView *> *clipViews;
@@ -38,13 +47,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _clipViews = [[NSMutableArray alloc] initWithCapacity:8];
+    isFirstEnter = YES;
+    
+    _choosedImages = [[NSMutableArray alloc] initWithCapacity:MAX_CHOOSED_NUMBER];
+    _clipViews = [[NSMutableArray alloc] initWithCapacity:MAX_CHOOSED_NUMBER];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.automaticallyAdjustsScrollViewInsets = false;
     
-    [self setupTemplate];
+    [self setupContainer];
     [self setupOthersWidget];
+    [self loadTemplate];
 }
 
 - (void)updateViewConstraints {
@@ -53,15 +66,25 @@
     NSLog(@"");
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (isFirstEnter == YES) {
+        isFirstEnter = NO;
+        [self gotoPickImages];
+    }
+    
+//    if (_choosedImages.count == 0) {
+//    }
+}
+
 #pragma mark - Private Functions
 
-- (void)setupTemplate {
-
-    // setup container
+- (void)setupContainer {
     _container = [[UIView alloc] init];
     _container.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:_container];
-
+    
     CGFloat spaceTop = 80;
     CGFloat spaceWidth = 30;
     CGFloat containerWidth = SCREEN_WIDTH - 2 * spaceWidth;
@@ -75,33 +98,6 @@
         make.top.equalTo(self.view).offset(spaceTop);
         make.height.mas_equalTo(containerHeight);
     }];
-    
-    // template and shapes points array data
-    _template = [TemplateHelper generateTemplateWithFileName:@"d01"]; // TODO: 根据选择的图片数选初始化模板
-    
-    // generate shapes
-    for (ClipShape *shape in _template.shapes) {
-        ImageClipView *view = [[ImageClipView alloc] initWithPoints:shape.clipPoints];
-        view.tag = TAG_START_VIEW + [_template.shapes indexOfObject:shape];
-        view.userInteractionEnabled = YES;
-        [_container addSubview:view];
-        
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAction:)];
-        [view addGestureRecognizer:tapGesture];
-        
-        [_clipViews addObject:view];
-    }
-    
-    // shapes make constraints
-    int idx = 0;
-    for (ImageClipView *view in _clipViews) {
-        ClipShape *shape = [_template.shapes objectAtIndex:idx];
-        UIEdgeInsets inset = [TemplateHelper getEdgeInsetsWithShape:shape containerSize:_containerSize];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(_container).insets(inset);
-        }];
-        idx++;
-    }
 }
 
 - (void)setupOthersWidget {
@@ -114,18 +110,73 @@
     self.navigationItem.rightBarButtonItem = finishBar;
     
     // other ui
-    RoundButton *button = [[RoundButton alloc] initWithTitle:@"选模板"];
-    [button addTarget:self action:@selector(onChangeTemplateAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    RoundButton *imagesButton = [[RoundButton alloc] initWithTitle:@"增/减图片"];
+    // UIControlEventTouchDragOutside TODO: 拖放交换位置
+    [imagesButton addTarget:self action:@selector(onImagesAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:imagesButton];
+    RoundButton *templateButton = [[RoundButton alloc] initWithTitle:@"选模板"];
+    [templateButton addTarget:self action:@selector(onChangeTemplateAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:templateButton];
     
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+    [imagesButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_container.mas_bottom).offset(50);
+        make.right.equalTo(templateButton.mas_left).offset(-20);
+        make.width.mas_equalTo(90);
+        make.height.mas_equalTo(40);
+    }];
+    [templateButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_container.mas_bottom).offset(50);
         make.centerX.equalTo(self.view);
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(40);
     }];
+
 }
 
+- (void)loadTemplate {
+    
+    [_clipViews removeAllObjects];
+    _template = nil;
+    
+    // template and shapes points array data
+    NSInteger number = _choosedImages.count;
+    NSInteger startASCII = [@"a" characterAtIndex:0];
+    NSString *basicFileName = [NSString stringWithFormat:@"%c01", (int)(startASCII + number - 1)];
+    _template = [TemplateHelper generateTemplateWithFileName:basicFileName];
+    
+    // generate shapes
+    int idx = 0;
+    for (ClipShape *shape in _template.shapes) {
+        ImageClipView *view = [[ImageClipView alloc] initWithPoints:shape.clipPoints];
+        view.tag = TAG_START_VIEW + idx;
+        view.userInteractionEnabled = YES;
+        [_container addSubview:view];
+        [view setImage:_choosedImages[idx]];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAction:)];
+        [view addGestureRecognizer:tapGesture];
+        
+        [_clipViews addObject:view];
+        idx++;
+    }
+    
+    // shapes make constraints
+    idx = 0;
+    for (ImageClipView *view in _clipViews) {
+        ClipShape *shape = [_template.shapes objectAtIndex:idx];
+        UIEdgeInsets inset = [TemplateHelper getEdgeInsetsWithShape:shape containerSize:_containerSize];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(_container).insets(inset);
+        }];
+        idx++;
+    }
+}
+
+/**
+ 重新加载模板
+ 
+ @note 只改变模板式样，不改变模板内子图形个数
+ */
 - (void)reloadTemplateWithName: (NSString *)name {
     
     _template = [TemplateHelper generateTemplateWithFileName:name];
@@ -133,6 +184,7 @@
     int idx = 0;
     for (ImageClipView *view in _clipViews) {
         ClipShape *shape = [_template.shapes objectAtIndex:idx];
+        [view setClipPoints:shape.clipPoints];
         UIEdgeInsets inset = [TemplateHelper getEdgeInsetsWithShape:shape containerSize:_containerSize];
         [view mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(_container).insets(inset);
@@ -141,16 +193,55 @@
     }
 }
 
+
+/**
+ 进行选图
+ */
+- (void)gotoPickImages {
+    NSInteger maxImages = MAX_CHOOSED_NUMBER - _choosedImages.count;
+    
+    // TODO: 更新 PicturePicker 使得1.不进入就跳动，2.支持最小的选择输入参数
+    
+    __weak EditViewController *strongSelf = self;
+    [[PickerManager shared] startChoosePhotosWith:maxImages completion:^(NSArray<UIImage *> *images) {
+        NSLog(@"%@", images);
+        [_choosedImages addObjectsFromArray:images];
+//        ImagesDisplayView *display = [[ImagesDisplayView alloc] initWithImages:images];
+//        [display show];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf loadTemplate];
+        });
+    }];
+}
+
+#pragma mark - Callback Functions
+
 - (void)onTapAction: (UITapGestureRecognizer *)sender {
     NSLog(@"on tap action");
     NSLog(@"-> %ld", sender.view.tag);
-    
+    // TODO: 弹出气泡菜单
 }
 
-- (void)onChangeTemplateAction: (UIButton *)sender {
+- (void)onImagesAction {
+    NSLog(@"onImagesAction");
+    
+    if (_choosedImages.count == 0) {
+        [self gotoPickImages];
+    } else {
+        ImagesDisplayView *display = [[ImagesDisplayView alloc] initWithImages:_choosedImages];
+        [display show];
+    }
+}
+
+- (void)onChangeTemplateAction {
     NSLog(@"onChangeTemplateAction");
     
-    [self reloadTemplateWithName:@"d03"];
+    // TODO: 初始化时高亮当前这个
+    NSArray *names = [TemplateHelper getTemplateNamesWithNumber:_choosedImages.count];
+    TemplateDisplayView *display = [[TemplateDisplayView alloc] initWithNames:names];
+    display.delegate = self;
+    [display show];
 }
 
 - (void)onBackAction: (UIBarButtonItem *)sender {
@@ -186,7 +277,13 @@
     });
 }
 
+#pragma mark - TemplateDisplayViewDelegate
+
+- (void)templateDisplayName:(NSString *)name {
+    [self reloadTemplateWithName:name];
+}
 
 @end
+
 
 

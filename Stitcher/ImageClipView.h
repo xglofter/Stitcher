@@ -41,6 +41,13 @@
 
 
 /**
+ 重新设置 ClipPoints 数组
+ 
+ @note 在变换模板时需要重置
+ */
+- (void)setClipPoints: (NSArray<NSValue *> *)points;
+
+/**
  获取编辑以后切图的范围
 
  @return 在本图片中的切图范围，使用 CGRect 表示

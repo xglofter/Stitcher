@@ -12,6 +12,20 @@
 
 @implementation TemplateHelper
 
++ (NSArray<NSString *> *)getTemplateNamesWithNumber: (NSInteger)number {
+    switch (number) {
+        case 2:
+            return @[@"b01"];
+        case 3:
+            return @[@"c01"];
+        case 4:
+            return @[@"d01", @"d02", @"d03"];
+        default:
+            return @[];
+    }
+}
+
+
 + (ClipTemplateData *)parseTemplateFile: (NSString *)filePath {
     NSDictionary *rootDict = [[NSDictionary alloc] initWithContentsOfFile:filePath];
     if (rootDict == nil) {

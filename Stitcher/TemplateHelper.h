@@ -17,6 +17,15 @@
 
 @interface TemplateHelper : NSObject
 
+
+/**
+ 根据图形个数获取模板名字列表
+
+ @param number 子图形个数 eg: 3
+ @return 名字列表 eg: @[@"c01", @"c02" ...]
+ */
++ (NSArray<NSString *> *)getTemplateNamesWithNumber: (NSInteger)number;
+
 /**
  根据配置文件名生成模板类
 

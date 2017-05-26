@@ -15,7 +15,6 @@ const static int TAG_IMAGEVIEW = 200;
 
 @property(nonatomic, strong) UIView *container;
 @property(nonatomic, strong) UIScrollView *scrollView;
-@property(nonatomic, strong) UIImageView *imageView;
 
 @property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
 
@@ -33,19 +32,21 @@ const static int TAG_IMAGEVIEW = 200;
 }
 
 - (void)setImage: (UIImage *)image {
-    // TODO
+    _sourceImage = image;
+    UIImageView *view = (UIImageView *)[_scrollView viewWithTag:TAG_IMAGEVIEW];
+    view.image = image;
+    _scrollView.contentSize = image.size;
+}
+
+- (void)setClipPoints:(NSArray<NSValue *> *)points {
+    _clipPoints = points;
 }
 
 - (CGRect)getClipFrame {
     
     CGPoint offset = _scrollView.contentOffset;
     CGFloat zoom = _scrollView.zoomScale;
-    CGSize contentSize = _scrollView.contentSize;
     CGSize frameSize = _scrollView.frame.size;
-    
-    NSLog(@"offset: %lf %lf, zoom: %f", offset.x, offset.y, zoom);
-    NSLog(@"content size: %lf %lf", contentSize.width, contentSize.height);
-    NSLog(@"frame size: %lf %lf", frameSize.width, frameSize.height);
     
     CGFloat originX = offset.x / zoom;
     CGFloat originY = offset.y / zoom;
@@ -102,20 +103,23 @@ const static int TAG_IMAGEVIEW = 200;
     _scrollView.maximumZoomScale = 2.0;
     [_container addSubview:_scrollView];
     
-    _sourceImage = [UIImage imageNamed:@"cat.jpg"];  // TODO: 改为选择
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:_sourceImage];
+    UIImageView *imageView = [[UIImageView alloc] init];
     imageView.tag = TAG_IMAGEVIEW;
+//    imageView.image = _sourceImage;
     [_scrollView addSubview:imageView];
     
     _scrollView.contentSize = imageView.bounds.size;
-
+    
     [_container mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_container);
+    }];
+    
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_scrollView);
     }];
 }
 
