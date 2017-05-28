@@ -15,6 +15,9 @@
 #define OUTPUT_IMG_HEIGHT ((CGFloat)1500)
 #define OUTPUT_GAP_WIDTH ((CGFloat)15)
 
+#define MIN_CHOOSED_NUMBER 2
+#define MAX_CHOOSED_NUMBER 9
+
 @interface TemplateHelper : NSObject
 
 

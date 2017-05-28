@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   PicturePicker:
-    :commit: 54ee9d392666b9f7ce4a50d38806ce53f93173af
+    :commit: a559567fb5fac0b836830f39137eedc28b06e3ad
     :git: https://github.com/xglofter/PicturePicker.git
 
 SPEC CHECKSUMS:

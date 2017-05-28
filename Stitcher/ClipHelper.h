@@ -27,7 +27,15 @@
                      drawFrame: (CGRect)rect;
 
 
-// TODO: use NSArray
+
+/**
+ 将子图形拼接
+
+ @param size 目标图片大小
+ @param images 子图形
+ @param places 绘制位置
+ @return 目标图片
+ */
 + (UIImage *)mergeImagesWithSize: (CGSize)size
                      imagesArray: (NSArray<UIImage *> *)images
                      placesArray: (NSArray<NSValue *> *)places;

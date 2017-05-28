@@ -20,6 +20,7 @@
 		79885B321ED6C746009F9DAA /* ImagesDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B311ED6C746009F9DAA /* ImagesDisplayView.m */; };
 		79885B351ED6C784009F9DAA /* TemplateDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B341ED6C784009F9DAA /* TemplateDisplayView.m */; };
 		79885B381ED6C79E009F9DAA /* DisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B371ED6C79E009F9DAA /* DisplayView.m */; };
+		79A88B361ED9918B00ABF713 /* TemplateContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A88B351ED9918B00ABF713 /* TemplateContainerView.m */; };
 		79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB00981ED42A7600A872D6 /* ClipHelper.m */; };
 		79E05DA81ED3093500AADFE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DA71ED3093500AADFE0 /* main.m */; };
 		79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAA1ED3093500AADFE0 /* AppDelegate.m */; };
@@ -76,6 +77,8 @@
 		79885B341ED6C784009F9DAA /* TemplateDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateDisplayView.m; sourceTree = "<group>"; };
 		79885B361ED6C79E009F9DAA /* DisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayView.h; sourceTree = "<group>"; };
 		79885B371ED6C79E009F9DAA /* DisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayView.m; sourceTree = "<group>"; };
+		79A88B341ED9918B00ABF713 /* TemplateContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateContainerView.h; sourceTree = "<group>"; };
+		79A88B351ED9918B00ABF713 /* TemplateContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateContainerView.m; sourceTree = "<group>"; };
 		79CB00971ED42A7600A872D6 /* ClipHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipHelper.h; sourceTree = "<group>"; };
 		79CB00981ED42A7600A872D6 /* ClipHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipHelper.m; sourceTree = "<group>"; };
 		79E05DA31ED3093500AADFE0 /* Stitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +166,8 @@
 		792CCF151ED5AAE8001EFD00 /* template */ = {
 			isa = PBXGroup;
 			children = (
+				79A88B341ED9918B00ABF713 /* TemplateContainerView.h */,
+				79A88B351ED9918B00ABF713 /* TemplateContainerView.m */,
 				79E05DE21ED320E800AADFE0 /* ImageClipView.h */,
 				79E05DE31ED320E800AADFE0 /* ImageClipView.m */,
 				79CB00971ED42A7600A872D6 /* ClipHelper.h */,
@@ -486,6 +491,7 @@
 				79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */,
 				79189AB91ED4772800A22E5A /* ClipTemplate.m in Sources */,
 				79885B2B1ED68294009F9DAA /* RoundButton.m in Sources */,
+				79A88B361ED9918B00ABF713 /* TemplateContainerView.m in Sources */,
 				79E05DA81ED3093500AADFE0 /* main.m in Sources */,
 				79189ABC1ED4775B00A22E5A /* ClipShape.m in Sources */,
 				79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */,

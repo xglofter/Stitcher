@@ -13,8 +13,6 @@ const static int TAG_IMAGEVIEW = 200;
 
 @interface ImageClipView () <UIScrollViewDelegate>
 
-@property(nonatomic, strong) UIView *container;
-@property(nonatomic, strong) UIScrollView *scrollView;
 
 @property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
 
@@ -30,6 +28,26 @@ const static int TAG_IMAGEVIEW = 200;
     }
     return self;
 }
+
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    return [self isPointInClipArea:point];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    [self applyMask];
+    
+    // TODO: 将图片设置到合适位置显示
+    
+    CGFloat scaleX = self.bounds.size.width / _sourceImage.size.width;
+    CGFloat scaleY = self.bounds.size.height / _sourceImage.size.height;
+    
+    _scrollView.minimumZoomScale = (scaleX < scaleY) ? scaleY : scaleX;
+}
+
+#pragma mark - Public Functions
 
 - (void)setImage: (UIImage *)image {
     _sourceImage = image;
@@ -65,23 +83,6 @@ const static int TAG_IMAGEVIEW = 200;
     return points;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return [self isPointInClipArea:point];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-
-    [self applyMask];
-    
-    // TODO: 将图片设置到合适位置显示
-    
-    CGFloat scaleX = self.bounds.size.width / _sourceImage.size.width;
-    CGFloat scaleY = self.bounds.size.height / _sourceImage.size.height;
-    
-    _scrollView.minimumZoomScale = (scaleX < scaleY) ? scaleY : scaleX;
-}
-
 #pragma mark - UIScrollViewDelegate
 
 - (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -93,7 +94,11 @@ const static int TAG_IMAGEVIEW = 200;
 
 - (void)setup {
     
-    _container = [[UIView alloc] init];
+    _container = [[UIControl alloc] init];
+    [_container addTarget:self action:@selector(onTapClipView) forControlEvents:UIControlEventTouchUpInside];
+//    [_container addTarget:self action:@selector(onTapOutClipView) forControlEvents:UIControlEventTouchUpOutside];
+//    [_container addTarget:self action:@selector(onDragOutClipView) forControlEvents:UIControlEventTouchDragOutside];
+    [_container addTarget:self action:@selector(onDragOutClipView) forControlEvents:UIControlEventTouchUpOutside];
     [self addSubview:_container];
     
     _scrollView = [[UIScrollView alloc] init];
@@ -105,7 +110,6 @@ const static int TAG_IMAGEVIEW = 200;
     
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.tag = TAG_IMAGEVIEW;
-//    imageView.image = _sourceImage;
     [_scrollView addSubview:imageView];
     
     _scrollView.contentSize = imageView.bounds.size;
@@ -180,5 +184,22 @@ const static int TAG_IMAGEVIEW = 200;
     point.y *= size.height;
     return point;
 }
+
+- (void)onTapClipView {
+    NSLog(@"---onTapClipView");
+}
+
+- (void)onTapOutClipView {
+    NSLog(@"---onTapOutClipView");
+}
+
+- (void)onDragInClipView {
+    NSLog(@"---onDragInClipView");
+}
+
+- (void)onDragOutClipView {
+    NSLog(@"---onDragOutClipView");
+}
+
 
 @end
