@@ -10,6 +10,12 @@
 
 @interface RoundButton : UIButton
 
+@property(nonatomic, assign) BOOL isHighlight;
+
 - (instancetype)initWithTitle: (NSString *)title;
+
+- (void)highlight;
+
+- (void)unhighlight;
 
 @end

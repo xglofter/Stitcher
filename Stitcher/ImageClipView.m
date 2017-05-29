@@ -8,13 +8,14 @@
 
 #import "ImageClipView.h"
 #import <Masonry/Masonry.h>
+#import "HighLightView.h"
 
 const static int TAG_IMAGEVIEW = 200;
 
 @interface ImageClipView () <UIScrollViewDelegate>
 
-
 @property(nonatomic, strong) NSArray<NSValue *> *clipPoints;
+@property(nonatomic, strong) HighLightView *highlightView;
 
 @end
 
@@ -38,14 +39,18 @@ const static int TAG_IMAGEVIEW = 200;
     [super layoutSubviews];
 
     [self applyMask];
+//    [_highlight setNeedsDisplay]; // 触发重绘
     
     // TODO: 将图片设置到合适位置显示
     
     CGFloat scaleX = self.bounds.size.width / _sourceImage.size.width;
     CGFloat scaleY = self.bounds.size.height / _sourceImage.size.height;
+    CGFloat minScale = (scaleX < scaleY) ? scaleY : scaleX;
     
-    _scrollView.minimumZoomScale = (scaleX < scaleY) ? scaleY : scaleX;
+    _scrollView.minimumZoomScale = minScale;
+    _scrollView.zoomScale = minScale;
 }
+
 
 #pragma mark - Public Functions
 
@@ -54,6 +59,10 @@ const static int TAG_IMAGEVIEW = 200;
     UIImageView *view = (UIImageView *)[_scrollView viewWithTag:TAG_IMAGEVIEW];
     view.image = image;
     _scrollView.contentSize = image.size;
+    
+    if (self.bounds.size.width != 0 && self.bounds.size.height != 0) {
+        [self layoutSubviews];
+    }
 }
 
 - (void)setClipPoints:(NSArray<NSValue *> *)points {
@@ -94,11 +103,7 @@ const static int TAG_IMAGEVIEW = 200;
 
 - (void)setup {
     
-    _container = [[UIControl alloc] init];
-    [_container addTarget:self action:@selector(onTapClipView) forControlEvents:UIControlEventTouchUpInside];
-//    [_container addTarget:self action:@selector(onTapOutClipView) forControlEvents:UIControlEventTouchUpOutside];
-//    [_container addTarget:self action:@selector(onDragOutClipView) forControlEvents:UIControlEventTouchDragOutside];
-    [_container addTarget:self action:@selector(onDragOutClipView) forControlEvents:UIControlEventTouchUpOutside];
+    _container = [[UIView alloc] init];
     [self addSubview:_container];
     
     _scrollView = [[UIScrollView alloc] init];
@@ -125,6 +130,7 @@ const static int TAG_IMAGEVIEW = 200;
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(_scrollView);
     }];
+    
 }
 
 - (void)applyMask {
@@ -149,6 +155,7 @@ const static int TAG_IMAGEVIEW = 200;
     
     self.layer.mask = maskLayer;
 }
+
 
 // 判断点是否在四边形内部
 - (BOOL)isPointInClipArea: (CGPoint)point {
@@ -185,20 +192,21 @@ const static int TAG_IMAGEVIEW = 200;
     return point;
 }
 
-- (void)onTapClipView {
-    NSLog(@"---onTapClipView");
+- (void)unhighlight {
+    if (_highlightView != nil) {
+        [_highlightView removeFromSuperview];
+        _highlightView = nil;
+    }
 }
 
-- (void)onTapOutClipView {
-    NSLog(@"---onTapOutClipView");
-}
+- (void)highlight {
+    if (_highlightView != nil) return;
 
-- (void)onDragInClipView {
-    NSLog(@"---onDragInClipView");
-}
-
-- (void)onDragOutClipView {
-    NSLog(@"---onDragOutClipView");
+    _highlightView = [[HighLightView alloc] initWithPoints:[self getClipFramePoints]];
+    [_container addSubview:_highlightView];
+    [_highlightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_container);
+    }];
 }
 
 

@@ -15,7 +15,15 @@
 #import "ClipShape.h"
 
 
-#define TAG_START_VIEW 1000
+#define TAG_ORDER_SELECT    100
+#define TAG_ORDER_TARGET    150
+#define TAG_ORDER_UNSELECT  200
+
+@interface TemplateContainerView ()
+
+@property(nonatomic, strong) UIImageView *imageView;
+
+@end
 
 @implementation TemplateContainerView
 
@@ -25,11 +33,103 @@
         _containerSize = size;
         _clipViews = [[NSMutableArray alloc] initWithCapacity:MAX_CHOOSED_NUMBER];
         _choosedImages = [[NSMutableArray alloc] initWithCapacity:MAX_CHOOSED_NUMBER];
+        _stateMode = TemplateContainerOnEdit;
         
         self.backgroundColor = UIColor.whiteColor;
 
     }
     return self;
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (_stateMode == TemplateContainerOnEdit) return;
+    
+    CGPoint point = [touches.anyObject locationInView:self];
+    for (ImageClipView *view in _clipViews) {
+        CGPoint thePoint = [self convertPoint:point toView:view];
+        if ([view pointInside:thePoint withEvent:event]) {
+            view.tag = TAG_ORDER_SELECT;
+            if (_imageView == nil) {
+                _imageView = [[UIImageView alloc] initWithImage:view.sourceImage];
+                _imageView.contentMode = UIViewContentModeScaleAspectFill;
+                _imageView.frame = CGRectMake(0, 0, 80, 100);
+                _imageView.alpha = 0.4;
+                [self addSubview:_imageView];
+            } else {
+                _imageView.image = view.sourceImage;
+            }
+            _imageView.hidden = YES;
+        }
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (_stateMode == TemplateContainerOnEdit) return;
+    
+    CGPoint point = [touches.anyObject locationInView:self];
+    for (ImageClipView *view in _clipViews) {
+        CGPoint thePoint = [self convertPoint:point toView:view];
+        if ([view pointInside:thePoint withEvent:event]) {
+            if (view.tag != TAG_ORDER_SELECT) {
+                [view highlight];
+                _imageView.hidden = NO;
+                _imageView.center = point;
+            } else {
+                _imageView.hidden = YES;
+            }
+        } else {
+            [view unhighlight];
+        }
+    }
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (_stateMode == TemplateContainerOnEdit) return;
+    
+    CGPoint point = [touches.anyObject locationInView:self];
+    BOOL isNeedExchange = NO;
+    for (ImageClipView *view in _clipViews) {
+        CGPoint thePoint = [self convertPoint:point toView:view];
+        if ([view pointInside:thePoint withEvent:event]) {
+            if (view.tag != TAG_ORDER_SELECT) {
+                view.tag = TAG_ORDER_TARGET;
+                isNeedExchange = YES;
+            }
+        }
+    }
+
+    if (isNeedExchange) {
+        NSInteger startIdx = [_clipViews indexOfObject:[self viewWithTag:TAG_ORDER_SELECT]];
+        NSInteger endIdx = [_clipViews indexOfObject:[self viewWithTag:TAG_ORDER_TARGET]];
+        [_choosedImages exchangeObjectAtIndex:startIdx withObjectAtIndex:endIdx];
+        
+        int idx = 0;
+        for (ImageClipView *view in _clipViews) {
+            [view setImage:_choosedImages[idx]];
+            idx++;
+        }
+    }
+    
+    // clean
+    for (ImageClipView *view in _clipViews) {
+        view.tag = TAG_ORDER_UNSELECT;
+        [view unhighlight];
+        _imageView.hidden = YES;
+    }
+}
+
+
+- (void)setState: (TemplateContainerViewState)state {
+    _stateMode = state;
+    
+    for (ImageClipView *view in _clipViews) {
+        if (state == TemplateContainerOnEdit) {
+            view.scrollView.userInteractionEnabled = YES;
+        } else if (state == TemplateContainerOnOrder) {
+            view.scrollView.userInteractionEnabled = NO;
+        }
+    }
 }
 
 
@@ -48,25 +148,8 @@
     int idx = 0;
     for (ClipShape *shape in _template.shapes) {
         ImageClipView *view = [[ImageClipView alloc] initWithPoints:shape.clipPoints];
-        view.tag = TAG_START_VIEW + idx;
         [self addSubview:view];
         [view setImage:_choosedImages[idx]];
-        
-//        if (idx == 0) {
-//            view.container.userInteractionEnabled = YES;
-//            view.scrollView.userInteractionEnabled = NO;
-//        } else {
-//            view.container.userInteractionEnabled = NO;
-//            view.scrollView.userInteractionEnabled = NO;
-//        }
-        
-        //        [view addTarget:self action:@selector(onDragInClipView) forControlEvents:UIControlEventTouchDragInside];
-        //        [view addTarget:self action:@selector(onDragOutClipView) forControlEvents:UIControlEventTouchDragOutside];
-        //        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapClipView)];
-        //        [view addGestureRecognizer:tapGesture];
-        //        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onDragOutClipView)];
-        //        [view addGestureRecognizer:panGesture];
-        
         [_clipViews addObject:view];
         idx++;
     }
@@ -84,11 +167,6 @@
 }
 
 
-/**
- 重新加载模板
- 
- @note 只改变模板式样，不改变模板内子图形个数
- */
 - (void)reloadTemplateWithName: (NSString *)name {
     
     _template = [TemplateHelper generateTemplateWithFileName:name];
@@ -132,24 +210,6 @@
 }
 
 #pragma mark - Callback Fucntions
-
-- (void)onTapClipView {
-    NSLog(@"onTapClipView");
-    //    NSLog(@"-> %ld", sender.view.tag);
-    // TODO: 弹出气泡菜单
-}
-
-- (void)onTapOutClipView {
-    NSLog(@"onTapOutClipView");
-}
-
-- (void)onDragInClipView {
-    NSLog(@"onDragInClipView");
-}
-
-- (void)onDragOutClipView {
-    NSLog(@"onDragOutClipView");
-}
 
 
 @end

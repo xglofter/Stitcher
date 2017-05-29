@@ -14,6 +14,8 @@
 - (instancetype)initWithTitle: (NSString *)title {
     self = [super initWithFrame:CGRectZero];
     if (self != nil) {
+        _isHighlight = NO;
+        
         self.backgroundColor = [UIColor blackColor];
         self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
         self.layer.borderWidth = 2;
@@ -30,5 +32,14 @@
     self.layer.cornerRadius = self.frame.size.height * 0.5;
 }
 
+- (void)highlight {
+    self.layer.borderColor = [[UIColor orangeColor] CGColor]; // TODO: 继续封装
+    _isHighlight = YES;
+}
+
+- (void)unhighlight {
+    self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    _isHighlight = NO;
+}
 
 @end

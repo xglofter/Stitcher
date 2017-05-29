@@ -34,6 +34,7 @@
 		79E05DDF1ED30B2F00AADFE0 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DDC1ED30B2F00AADFE0 /* cat.jpg */; };
 		79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DE31ED320E800AADFE0 /* ImageClipView.m */; };
 		79E9D1EB1ED838BA00208A45 /* b01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79E9D1EA1ED838BA00208A45 /* b01.plist */; };
+		79FB0E561EDC0BDF00C74CB2 /* HighLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FB0E551EDC0BDF00C74CB2 /* HighLightView.m */; };
 		BF9294BD43BDF3F06C60CE2E /* Pods_Stitcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE86CE57A24F2E70A72D2B /* Pods_Stitcher.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		79E05DE21ED320E800AADFE0 /* ImageClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageClipView.h; sourceTree = "<group>"; };
 		79E05DE31ED320E800AADFE0 /* ImageClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageClipView.m; sourceTree = "<group>"; };
 		79E9D1EA1ED838BA00208A45 /* b01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = b01.plist; path = data/b01.plist; sourceTree = "<group>"; };
+		79FB0E541EDC0BDF00C74CB2 /* HighLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLightView.h; sourceTree = "<group>"; };
+		79FB0E551EDC0BDF00C74CB2 /* HighLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLightView.m; sourceTree = "<group>"; };
 		93BFC0911B52677625D2D7A5 /* Pods-Stitcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.release.xcconfig"; sourceTree = "<group>"; };
 		C74B89F5204561AF7EE64F2E /* Pods-Stitcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stitcher/Pods-Stitcher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +181,8 @@
 				79189AB81ED4772800A22E5A /* ClipTemplate.m */,
 				79189ABA1ED4775B00A22E5A /* ClipShape.h */,
 				79189ABB1ED4775B00A22E5A /* ClipShape.m */,
+				79FB0E541EDC0BDF00C74CB2 /* HighLightView.h */,
+				79FB0E551EDC0BDF00C74CB2 /* HighLightView.m */,
 			);
 			name = template;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 			files = (
 				79E05DDB1ED30A3000AADFE0 /* EditViewController.m in Sources */,
 				79885B2F1ED690DE009F9DAA /* FinishViewController.m in Sources */,
+				79FB0E561EDC0BDF00C74CB2 /* HighLightView.m in Sources */,
 				79E05DE41ED320E800AADFE0 /* ImageClipView.m in Sources */,
 				792CCF141ED59818001EFD00 /* README.md in Sources */,
 				79885B381ED6C79E009F9DAA /* DisplayView.m in Sources */,

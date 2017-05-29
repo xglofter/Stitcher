@@ -10,7 +10,7 @@
 
 @interface ImageClipView : UIView
 
-@property(nonatomic, strong) UIControl *container;
+@property(nonatomic, strong) UIView *container;
 @property(nonatomic, strong) UIScrollView *scrollView;
 
 @property(nonatomic, strong) UIImage *sourceImage;
@@ -58,5 +58,9 @@
  @note: 与 initWithPoints 中的传参不同，初始化中的是 0~1 的相对位置
  */
 - (NSArray *)getClipFramePoints;
+
+- (void)unhighlight;
+
+- (void)highlight;
 
 @end

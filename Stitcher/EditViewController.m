@@ -31,6 +31,10 @@
 
 @property(nonatomic, strong) TemplateContainerView *container;
 
+@property(nonatomic, strong) RoundButton *imagesButton;
+@property(nonatomic, strong) RoundButton *templateButton;
+@property(nonatomic, strong) RoundButton *orderButton;
+
 @end
 
 @implementation EditViewController
@@ -95,23 +99,32 @@
     self.navigationItem.rightBarButtonItem = finishBar;
     
     // other ui
-    RoundButton *imagesButton = [[RoundButton alloc] initWithTitle:@"增/减图片"];
-    [imagesButton addTarget:self action:@selector(onImagesAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:imagesButton];
-    RoundButton *templateButton = [[RoundButton alloc] initWithTitle:@"选模板"];
-    [templateButton addTarget:self action:@selector(onChangeTemplateAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:templateButton];
+    _imagesButton = [[RoundButton alloc] initWithTitle:@"增/减图片"];
+    [_imagesButton addTarget:self action:@selector(onImagesAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_imagesButton];
+    _templateButton = [[RoundButton alloc] initWithTitle:@"选模板"];
+    [_templateButton addTarget:self action:@selector(onChangeTemplateAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_templateButton];
+    _orderButton = [[RoundButton alloc] initWithTitle:@"排序"];
+    [_orderButton addTarget:self action:@selector(onChangeOrderAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_orderButton];
     
-    [imagesButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_imagesButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_container.mas_bottom).offset(50);
-        make.right.equalTo(templateButton.mas_left).offset(-20);
+        make.right.equalTo(_templateButton.mas_left).offset(-20);
         make.width.mas_equalTo(90);
         make.height.mas_equalTo(40);
     }];
-    [templateButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_templateButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_container.mas_bottom).offset(50);
         make.centerX.equalTo(self.view);
         make.width.mas_equalTo(80);
+        make.height.mas_equalTo(40);
+    }];
+    [_orderButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_container.mas_bottom).offset(50);
+        make.left.equalTo(_templateButton.mas_right).offset(20);
+        make.width.mas_equalTo(90);
         make.height.mas_equalTo(40);
     }];
 }
@@ -159,6 +172,16 @@
     [display show];
 }
 
+- (void)onChangeOrderAction {
+    if (_container.stateMode == TemplateContainerOnEdit) {
+        [_container setState:TemplateContainerOnOrder];
+        [_orderButton highlight];
+    } else if (_container.stateMode == TemplateContainerOnOrder) {
+        [_container setState:TemplateContainerOnEdit];
+        [_orderButton unhighlight];
+    }
+}
+
 - (void)onBackAction: (UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -177,6 +200,7 @@
 #pragma mark - TemplateDisplayViewDelegate
 
 - (void)templateDisplayName:(NSString *)name {
+    // TODO: 需要更新子图形的缩放大小以及位置
     [_container reloadTemplateWithName:name];
 }
 

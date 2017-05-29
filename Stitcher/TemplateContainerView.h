@@ -11,8 +11,14 @@
 @class ClipTemplate;
 @class ImageClipView;
 
+typedef NS_ENUM(NSInteger, TemplateContainerViewState) {
+    TemplateContainerOnEdit,
+    TemplateContainerOnOrder,
+};
 
 @interface TemplateContainerView : UIView
+
+@property(nonatomic, assign) TemplateContainerViewState stateMode;
 
 @property(nonatomic, assign, readonly) CGSize containerSize;
 
@@ -23,7 +29,21 @@
 @property(nonatomic, strong, readonly) ClipTemplate *template;
 
 
+/**
+ 初始化
+
+ @param size 容器大小
+ @return TemplateContainerView 实例
+ */
 - (instancetype)initWithSize: (CGSize)size;
+
+
+/**
+ 设置模板容器的状态
+
+ @param state 状态，编辑状态，排序状态
+ */
+- (void)setState: (TemplateContainerViewState)state;
 
 
 /**
@@ -36,6 +56,8 @@
  根据选择的模板名重加载模板
 
  @param name 模板配置文件名
+ 
+ @note 只改变模板式样，不改变模板内子图形个数
  */
 - (void)reloadTemplateWithName: (NSString *)name;
 
