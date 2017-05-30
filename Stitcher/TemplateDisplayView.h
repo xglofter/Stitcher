@@ -18,6 +18,6 @@
 
 @property(nonatomic, weak) id<TemplateDisplayViewDelegate> delegate;
 
-- (instancetype)initWithNames: (NSArray<NSString *> *)names;
+- (instancetype)initWithNames: (NSArray<NSString *> *)names currName: (NSString *)name;
 
 @end

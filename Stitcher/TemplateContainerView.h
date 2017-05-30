@@ -69,4 +69,19 @@ typedef NS_ENUM(NSInteger, TemplateContainerViewState) {
  */
 - (UIImage *)generateTargetImage;
 
+
+/**
+ 移除掉图片
+
+ @param index 图片 choosedImages 的下标
+ */
+- (void)removeImageAtIndex: (NSInteger)index;
+
+
+/**
+ 当前模板 id 名
+ */
+- (NSString *)currentTemplateName;
+
+
 @end

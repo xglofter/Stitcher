@@ -27,6 +27,8 @@
 
 @implementation TemplateContainerView
 
+#pragma mark - Lifecycle
+
 - (instancetype)initWithSize:(CGSize)size {
     self = [super initWithFrame:CGRectZero];
     if (self) {
@@ -119,6 +121,7 @@
     }
 }
 
+#pragma mark - Public Functions
 
 - (void)setState: (TemplateContainerViewState)state {
     _stateMode = state;
@@ -132,9 +135,11 @@
     }
 }
 
-
 - (void)loadTemplate {
     
+    for (ImageClipView *view in _clipViews) {
+        [view removeFromSuperview];
+    }
     [_clipViews removeAllObjects];
     _template = nil;
     
@@ -208,6 +213,17 @@
     NSLog(@"output: %lf %lf", outImage.size.width, outImage.size.height);
     return outImage;
 }
+
+- (void)removeImageAtIndex: (NSInteger)index {
+    [_choosedImages removeObjectAtIndex:index];
+    [self loadTemplate];
+}
+
+- (NSString *)currentTemplateName {
+    return _template.templateName;
+}
+
+#pragma mark - Private Functions
 
 #pragma mark - Callback Fucntions
 

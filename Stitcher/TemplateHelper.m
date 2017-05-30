@@ -88,6 +88,7 @@
     }
     
     ClipTemplateData *data = [[ClipTemplateData alloc] init];
+    data.templateName = theId;
     data.shapeNumber = number;
     data.vertexPoints = tempAllShapeVertex;
     data.edgeInsets = tempAllEdgeInsets;

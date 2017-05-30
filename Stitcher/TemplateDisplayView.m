@@ -14,7 +14,9 @@
 #define TAG_SELECT_CELL           200
 #define TAG_UNSELECT_CELL         250
 
-@interface TemplateDisplayView () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface TemplateDisplayView () <UICollectionViewDataSource, UICollectionViewDelegate> {
+    NSString *_currName;
+}
 
 @property(nonatomic, strong) UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray<NSString *> *names;
@@ -23,10 +25,11 @@
 
 @implementation TemplateDisplayView
 
-- (instancetype)initWithNames: (NSArray<NSString *> *)names {
+- (instancetype)initWithNames: (NSArray<NSString *> *)names currName:(NSString *)name {
     self = [super initWithHeight:90];
     if (self != nil) {
         _names = names;
+        _currName = name;
         [self setup];
     }
     return self;
@@ -41,8 +44,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:IDENTIFIER_TEMPLATE_CELL forIndexPath:indexPath];
     
+    NSString *tempName = _names[indexPath.row];
+    if ([tempName isEqualToString:_currName]) {
+        cell.tag = TAG_SELECT_CELL;
+        cell.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
+    }
+    
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:_names[indexPath.row]];
+    imageView.image = [UIImage imageNamed:tempName];
     [cell addSubview:imageView];
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,8 +72,8 @@
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.tag = TAG_SELECT_CELL;
     cell.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-    
-    [self.delegate templateDisplayName:_names[indexPath.row]];
+    _currName = _names[indexPath.row];
+    [self.delegate templateDisplayName:_currName];
 }
 
 

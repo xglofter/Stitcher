@@ -18,6 +18,7 @@
 - (instancetype)initWithData: (ClipTemplateData *)data {
     self = [super init];
     if (self != nil) {
+        _templateName = data.templateName;
         _shapes = [[NSMutableArray alloc] initWithCapacity:data.shapeNumber];
         
         for (int i = 0; i < data.shapeNumber; ++i) {

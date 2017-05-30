@@ -42,7 +42,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:IDENTIFIER_IMGES_CELL forIndexPath:indexPath];
-    cell.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];
     
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.clipsToBounds = YES;
@@ -80,16 +79,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == _images.count) {
-        // TODO: 将 9 这个样的配置写到一个文件内
-        // TODO: 通知到 EditViewController 去新增图片
-        //        [[PickerManager shared] startChoosePhotosWith:9 completion:^(NSArray<UIImage *> *images) {
-        //            NSLog(@"%@", images);
-        //
-        //        }];
+        [self.delegate imagesDisplayToAdd];
+        [self removeFromSuperview];
     } else {
         [_images removeObjectAtIndex:indexPath.row];
         [_collectionView deleteItemsAtIndexPaths:@[indexPath]];
-        // TODO: 通知到 EditViewController
+        
+        [self.delegate imagesDisplayRemoved:indexPath.row];
     }
 }
 

@@ -14,6 +14,11 @@
 @interface ClipTemplateData : NSObject
 
 /**
+ 模板名称
+ */
+@property(nonatomic, copy) NSString *templateName;
+
+/**
  子图形个数
  eg. 3 表示由三个子图形组成
  */
@@ -41,6 +46,7 @@
 
 @interface ClipTemplate : NSObject
 
+@property(nonatomic, copy) NSString *templateName;
 @property(nonatomic, strong) NSMutableArray<ClipShape *> *shapes;
 
 - (instancetype)initWithData: (ClipTemplateData *)data;

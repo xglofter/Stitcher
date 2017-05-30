@@ -11,11 +11,15 @@
 
 @protocol ImagesDisplayViewDelegate <NSObject>
 
-// TODO
+- (void)imagesDisplayRemoved: (NSInteger)index;
+
+- (void)imagesDisplayToAdd;
 
 @end
 
 @interface ImagesDisplayView : DisplayView
+
+@property(nonatomic, weak) id<ImagesDisplayViewDelegate> delegate;
 
 - (instancetype)initWithImages: (NSArray<UIImage *> *)images;
 

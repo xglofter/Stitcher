@@ -19,13 +19,10 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
-//#define TAG_START_VIEW 1000
-//#define MIN_CHOOSED_NUMBER 2
-//#define MAX_CHOOSED_NUMBER 9
 
 #pragma mark - EditViewController
 
-@interface EditViewController () <UIScrollViewDelegate, TemplateDisplayViewDelegate> {
+@interface EditViewController () <UIScrollViewDelegate, TemplateDisplayViewDelegate, ImagesDisplayViewDelegate> {
     BOOL isFirstEnter;
 }
 
@@ -158,16 +155,17 @@
         [self gotoPickImages];
     } else {
         ImagesDisplayView *display = [[ImagesDisplayView alloc] initWithImages:_container.choosedImages];
+        display.delegate = self;
         [display show];
     }
 }
 
 - (void)onChangeTemplateAction {
     NSLog(@"onChangeTemplateAction");
-    
-    // TODO: 初始化时高亮当前这个
+
     NSArray *names = [TemplateHelper getTemplateNamesWithNumber:_container.choosedImages.count];
-    TemplateDisplayView *display = [[TemplateDisplayView alloc] initWithNames:names];
+    NSString *name = [_container currentTemplateName];
+    TemplateDisplayView *display = [[TemplateDisplayView alloc] initWithNames:names currName: name];
     display.delegate = self;
     [display show];
 }
@@ -203,6 +201,17 @@
     // TODO: 需要更新子图形的缩放大小以及位置
     [_container reloadTemplateWithName:name];
 }
+
+#pragma mark - ImagesDisplayViewDelegate
+
+- (void)imagesDisplayRemoved: (NSInteger)index {
+    [_container removeImageAtIndex:index];
+}
+
+- (void)imagesDisplayToAdd {
+    [self gotoPickImages];
+}
+
 
 @end
 
