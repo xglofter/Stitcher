@@ -11,13 +11,6 @@
 @class ClipTemplate;
 @class ClipShape;
 
-#define OUTPUT_IMG_WIDTH ((CGFloat)1082)
-#define OUTPUT_IMG_HEIGHT ((CGFloat)1500)
-#define OUTPUT_GAP_WIDTH ((CGFloat)15)
-
-#define MIN_CHOOSED_NUMBER 1
-#define MAX_CHOOSED_NUMBER 9
-
 @interface TemplateHelper : NSObject
 
 
@@ -46,6 +39,7 @@
  */
 + (UIEdgeInsets)getEdgeInsetsWithShape: (ClipShape *)shape
                          containerSize: (CGSize)size;
+
 /**
  获取 ClipShape 合并为最终拼接图的绘制区域，用于 ClipHelper::mergeImagesWithSize
 
@@ -53,5 +47,6 @@
  @return CGRect
  */
 + (CGRect)getMergeRectWithShape: (ClipShape *)shape;
+
 
 @end

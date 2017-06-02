@@ -7,6 +7,7 @@
 //
 
 #import "TemplateHelper.h"
+#import "StitcherConfig.h"
 #import "ClipTemplate.h"
 #import "ClipShape.h"
 

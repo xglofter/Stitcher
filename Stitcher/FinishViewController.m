@@ -37,12 +37,11 @@
     [_targetImageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.view addSubview:_targetImageView];
 
-//    make.height.equalTo(self.view).multipliedBy(0.8);
     [_targetImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(100, 50, 100, 50));
     }];
     
-//    UIImageWriteToSavedPhotosAlbum(_targetImage, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(_targetImage, nil, nil, nil);
 }
 
 - (void)didReceiveMemoryWarning {

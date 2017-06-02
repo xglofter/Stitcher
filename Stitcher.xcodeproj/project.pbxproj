@@ -20,12 +20,13 @@
 		79885B321ED6C746009F9DAA /* ImagesDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B311ED6C746009F9DAA /* ImagesDisplayView.m */; };
 		79885B351ED6C784009F9DAA /* TemplateDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B341ED6C784009F9DAA /* TemplateDisplayView.m */; };
 		79885B381ED6C79E009F9DAA /* DisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79885B371ED6C79E009F9DAA /* DisplayView.m */; };
+		79A79E7E1EDFF71000C41356 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A79E7D1EDFF71000C41356 /* UIImage+Color.m */; };
 		79A88B361ED9918B00ABF713 /* TemplateContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A88B351ED9918B00ABF713 /* TemplateContainerView.m */; };
 		79C65E901EDD261A00272922 /* a01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79C65E8F1EDD261A00272922 /* a01.plist */; };
 		79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB00981ED42A7600A872D6 /* ClipHelper.m */; };
 		79E05DA81ED3093500AADFE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DA71ED3093500AADFE0 /* main.m */; };
 		79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAA1ED3093500AADFE0 /* AppDelegate.m */; };
-		79E05DAE1ED3093500AADFE0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAD1ED3093500AADFE0 /* ViewController.m */; };
+		79E05DAE1ED3093500AADFE0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E05DAD1ED3093500AADFE0 /* MainViewController.m */; };
 		79E05DB11ED3093500AADFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DAF1ED3093500AADFE0 /* Main.storyboard */; };
 		79E05DB31ED3093500AADFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DB21ED3093500AADFE0 /* Assets.xcassets */; };
 		79E05DB61ED3093500AADFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E05DB41ED3093500AADFE0 /* LaunchScreen.storyboard */; };
@@ -79,6 +80,9 @@
 		79885B341ED6C784009F9DAA /* TemplateDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateDisplayView.m; sourceTree = "<group>"; };
 		79885B361ED6C79E009F9DAA /* DisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayView.h; sourceTree = "<group>"; };
 		79885B371ED6C79E009F9DAA /* DisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayView.m; sourceTree = "<group>"; };
+		79A79E7A1EDECBAD00C41356 /* StitcherConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StitcherConfig.h; sourceTree = "<group>"; };
+		79A79E7C1EDFF71000C41356 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		79A79E7D1EDFF71000C41356 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		79A88B341ED9918B00ABF713 /* TemplateContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateContainerView.h; sourceTree = "<group>"; };
 		79A88B351ED9918B00ABF713 /* TemplateContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateContainerView.m; sourceTree = "<group>"; };
 		79C65E8F1EDD261A00272922 /* a01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = a01.plist; path = data/a01.plist; sourceTree = "<group>"; };
@@ -88,8 +92,8 @@
 		79E05DA71ED3093500AADFE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79E05DA91ED3093500AADFE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		79E05DAA1ED3093500AADFE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		79E05DAC1ED3093500AADFE0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		79E05DAD1ED3093500AADFE0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		79E05DAC1ED3093500AADFE0 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		79E05DAD1ED3093500AADFE0 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		79E05DB01ED3093500AADFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79E05DB21ED3093500AADFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79E05DB51ED3093500AADFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,12 +178,12 @@
 			children = (
 				79189AB41ED474CC00A22E5A /* TemplateHelper.h */,
 				79189AB51ED474CC00A22E5A /* TemplateHelper.m */,
+				79CB00971ED42A7600A872D6 /* ClipHelper.h */,
+				79CB00981ED42A7600A872D6 /* ClipHelper.m */,
 				79A88B341ED9918B00ABF713 /* TemplateContainerView.h */,
 				79A88B351ED9918B00ABF713 /* TemplateContainerView.m */,
 				79E05DE21ED320E800AADFE0 /* ImageClipView.h */,
 				79E05DE31ED320E800AADFE0 /* ImageClipView.m */,
-				79CB00971ED42A7600A872D6 /* ClipHelper.h */,
-				79CB00981ED42A7600A872D6 /* ClipHelper.m */,
 				79189AB71ED4772800A22E5A /* ClipTemplate.h */,
 				79189AB81ED4772800A22E5A /* ClipTemplate.m */,
 				79189ABA1ED4775B00A22E5A /* ClipShape.h */,
@@ -220,14 +224,23 @@
 		79885B2C1ED69070009F9DAA /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79E05DAC1ED3093500AADFE0 /* ViewController.h */,
-				79E05DAD1ED3093500AADFE0 /* ViewController.m */,
+				79E05DAC1ED3093500AADFE0 /* MainViewController.h */,
+				79E05DAD1ED3093500AADFE0 /* MainViewController.m */,
 				79E05DD91ED30A3000AADFE0 /* EditViewController.h */,
 				79E05DDA1ED30A3000AADFE0 /* EditViewController.m */,
 				79885B2D1ED690DE009F9DAA /* FinishViewController.h */,
 				79885B2E1ED690DE009F9DAA /* FinishViewController.m */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		79A79E7B1EDFF64300C41356 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				79A79E7C1EDFF71000C41356 /* UIImage+Color.h */,
+				79A79E7D1EDFF71000C41356 /* UIImage+Color.m */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 		79E05D9A1ED3093500AADFE0 = {
@@ -255,11 +268,13 @@
 		79E05DA51ED3093500AADFE0 /* Stitcher */ = {
 			isa = PBXGroup;
 			children = (
-				79885B2C1ED69070009F9DAA /* controllers */,
-				79885B281ED681C6009F9DAA /* views */,
 				79E05DA91ED3093500AADFE0 /* AppDelegate.h */,
 				79E05DAA1ED3093500AADFE0 /* AppDelegate.m */,
+				79A79E7A1EDECBAD00C41356 /* StitcherConfig.h */,
+				79885B2C1ED69070009F9DAA /* controllers */,
+				79885B281ED681C6009F9DAA /* views */,
 				792CCF151ED5AAE8001EFD00 /* template */,
+				79A79E7B1EDFF64300C41356 /* utils */,
 				792CCF171ED5AB2F001EFD00 /* res */,
 				792CCF0A1ED5951C001EFD00 /* data */,
 				79E05DA61ED3093500AADFE0 /* Supporting Files */,
@@ -497,12 +512,13 @@
 				79885B321ED6C746009F9DAA /* ImagesDisplayView.m in Sources */,
 				79885B351ED6C784009F9DAA /* TemplateDisplayView.m in Sources */,
 				79189AB61ED474CC00A22E5A /* TemplateHelper.m in Sources */,
-				79E05DAE1ED3093500AADFE0 /* ViewController.m in Sources */,
+				79E05DAE1ED3093500AADFE0 /* MainViewController.m in Sources */,
 				79E05DAB1ED3093500AADFE0 /* AppDelegate.m in Sources */,
 				79189AB91ED4772800A22E5A /* ClipTemplate.m in Sources */,
 				79885B2B1ED68294009F9DAA /* RoundButton.m in Sources */,
 				79A88B361ED9918B00ABF713 /* TemplateContainerView.m in Sources */,
 				79E05DA81ED3093500AADFE0 /* main.m in Sources */,
+				79A79E7E1EDFF71000C41356 /* UIImage+Color.m in Sources */,
 				79189ABC1ED4775B00A22E5A /* ClipShape.m in Sources */,
 				79CB00991ED42A7600A872D6 /* ClipHelper.m in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "TemplateContainerView.h"
+#import "StitcherConfig.h"
 #import <Masonry/Masonry.h>
 #import "TemplateHelper.h"
 #import "ClipHelper.h"
@@ -117,8 +118,8 @@
     for (ImageClipView *view in _clipViews) {
         view.tag = TAG_ORDER_UNSELECT;
         [view unhighlight];
-        _imageView.hidden = YES;
     }
+    _imageView.hidden = YES;
 }
 
 #pragma mark - Public Functions
@@ -153,6 +154,7 @@
     int idx = 0;
     for (ClipShape *shape in _template.shapes) {
         ImageClipView *view = [[ImageClipView alloc] initWithPoints:shape.clipPoints];
+        view.tag = TAG_ORDER_UNSELECT;
         [self addSubview:view];
         [view setImage:_choosedImages[idx]];
         [_clipViews addObject:view];

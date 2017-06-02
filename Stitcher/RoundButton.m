@@ -7,7 +7,7 @@
 //
 
 #import "RoundButton.h"
-
+#import "UIImage+Color.h"
 
 @implementation RoundButton
 
@@ -16,9 +16,13 @@
     if (self != nil) {
         _isHighlight = NO;
         
-        self.backgroundColor = [UIColor blackColor];
+        UIImage *colorImage = [[UIImage alloc] initWithColor:[[UIColor blackColor] colorWithAlphaComponent:0.6]];
+        [self setBackgroundImage:colorImage forState:UIControlStateNormal];
+        
         self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
         self.layer.borderWidth = 2;
+        self.clipsToBounds = YES;
+        
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         [self.titleLabel setTextColor:[UIColor whiteColor]];
         [self setTitle:title forState:UIControlStateNormal];
@@ -41,5 +45,6 @@
     self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
     _isHighlight = NO;
 }
+
 
 @end

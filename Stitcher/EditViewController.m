@@ -7,6 +7,7 @@
 //
 
 #import "EditViewController.h"
+#import "StitcherConfig.h"
 #import "TemplateContainerView.h"
 #import "TemplateHelper.h"
 #import "RoundButton.h"
@@ -16,13 +17,10 @@
 #import "TemplateDisplayView.h"
 @import PicturePicker;
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
 
 #pragma mark - EditViewController
 
-@interface EditViewController () <UIScrollViewDelegate, TemplateDisplayViewDelegate, ImagesDisplayViewDelegate> {
+@interface EditViewController () <TemplateDisplayViewDelegate, ImagesDisplayViewDelegate> {
     BOOL isFirstEnter;
 }
 
@@ -137,7 +135,6 @@
     [[PickerManager shared] startChoosePhotosWith:maxImages completion:^(NSArray<UIImage *> *images) {
         NSLog(@"%@", images);
         EditViewController *strongSelf = weakSelf;
-        // TODO: bug 贴出来顺序是反的
         [strongSelf.container.choosedImages addObjectsFromArray:images];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -171,6 +168,9 @@
 }
 
 - (void)onChangeOrderAction {
+    
+    // TODO: 移动时，当前那个子图形需要设为不可见，被拖走
+    
     if (_container.stateMode == TemplateContainerOnEdit) {
         [_container setState:TemplateContainerOnOrder];
         [_orderButton highlight];
